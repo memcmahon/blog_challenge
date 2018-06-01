@@ -1,21 +1,31 @@
-<h1>Blog Posts</h1>
+<div class="col-10 mx-auto">
 
-<% @posts.each do |post| %>
-  <h3> <%= post.title %> </h3>
-  <p> <%= post.body %> </p>
-  <p> <%= post.user.first_name %> <%= post.user.last_name %> </p>
-  <% if current_user && current_user.id == post.user.id %>
-    <p> <%= link_to 'Edit', edit_post_path(post) %> </p>
-    <p> <%= link_to 'Delete', post_path(post), method: :delete %> </p>
-  <% end %>
-  <h5>Comments</h5>
-  <% post.comments.each do |comment| %>
-    <p> <%= comment.body %> </p>
-    <p> - <%= comment.user.first_name %></p>
-  <% end %>
-  <% if current_user %>
-    <p> <%= link_to 'Comment', new_comment_path(post_id: post.id) %> </p>
-  <% else %>
-    <p>log in to comment!</p>
-  <% end %>
-<% end %>
+  <h1 class="center">Blog Posts</h1>
+
+  <div class="col-10 mx-auto">
+
+    <% @posts.each do |post| %>
+    <div class="border">
+      <div class="ml1">
+          <h3> <%= post.title %> </h3>
+          <p> <%= post.body %> </p>
+          <p> <%= post.user.first_name %> <%= post.user.last_name %> </p>
+          <% if current_user && current_user.id == post.user.id %>
+            <p> <%= link_to 'Edit', edit_post_path(post) %> </p>
+            <p> <%= link_to 'Delete', post_path(post), method: :delete %> </p>
+          <% end %>
+          <h5>Comments</h5>
+          <% post.comments.each do |comment| %>
+            <p> <%= comment.body %> </p>
+            <p> - <%= comment.user.first_name %></p>
+          <% end %>
+          <% if current_user %>
+            <p> <%= link_to 'Comment', new_comment_path(post_id: post.id) %> </p>
+          <% else %>
+            <p>log in to comment!</p>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
