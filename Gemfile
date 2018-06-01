@@ -20,6 +20,7 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   gem 'rspec-rails'
   gem 'pry'
+  gem 'shoulda-matchers'
 end
 
 group :development do
