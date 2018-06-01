@@ -8,4 +8,14 @@
     <p> <%= link_to 'Edit', edit_post_path(post) %> </p>
     <p> <%= link_to 'Delete', post_path(post), method: :delete %> </p>
   <% end %>
+  <h5>Comments</h5>
+  <% post.comments.each do |comment| %>
+    <p> <%= comment.body %> </p>
+    <p> - <%= comment.user.first_name %></p>
+  <% end %>
+  <% if current_user %>
+    <p> <%= link_to 'Comment', new_comment_path(post_id: post.id) %> </p>
+  <% else %>
+    <p>log in to comment!</p>
+  <% end %>
 <% end %>
