@@ -13,13 +13,16 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'jbuilder', '~> 2.5'
+gem 'basscss-rails'
 
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
 
 group :development, :test do
   gem 'rspec-rails'
+  gem 'capybara'
   gem 'pry'
+  gem 'shoulda-matchers'
 end
 
 group :development do

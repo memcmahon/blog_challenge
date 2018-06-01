@@ -9,6 +9,26 @@
   </head>
 
   <body>
+    <nav class="m0 col-12 bg-white fixed z2">
+      <div class="ml1 left">
+        <h3 class="m0"> <%= link_to "The Blog", "/dashboard", class: "text-decoration-none black" %></h3>
+      </div>
+      <div class="mr1 right">
+        <% if current_user %>
+          <p><%= link_to 'log out', '/logout' %></p>
+        <% else %>
+          <p class="m0"><%= link_to 'sign up', new_user_path %></p>
+          <p class="m0"><%= link_to 'sign in', '/login' %></p>
+        <% end %>
+      </div>
+    </nav>
+
+    <div class="">
+      <%if current_user %>
+        <h3>Welcome <%= current_user.first_name %></h3>
+        <p><%= link_to 'New Post', new_post_path %></p>
+      <% end %>
+    </div>
     <%= yield %>
   </body>
 </html>
