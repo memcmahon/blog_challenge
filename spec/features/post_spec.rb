@@ -117,5 +117,17 @@ describe "As a user" do
       expect(page).to_not have_content('Test Title')
       expect(page).to_not have_content('test post body')
     end
+
+    it "visitors cannot edit or delete" do
+      user = User.create!(email: 'test@example.com', password: 'test', first_name: 'Megan', last_name: 'Test')
+      post = user.posts.create(title: 'Test Title', body: 'Test post body')
+
+      visit '/'
+
+      expect(page).to have_content('Test Title')
+      expect(page).to have_content('Test post body')
+      expect(page).to_not have_content('Edit')
+      expect(page).to_not have_content('Delete')
+    end
   end
 end
