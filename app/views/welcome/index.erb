@@ -4,4 +4,8 @@
   <h3> <%= post.title %> </h3>
   <p> <%= post.body %> </p>
   <p> <%= post.user.first_name %> <%= post.user.last_name %> </p>
+  <% if current_user.id == post.user.id %>
+    <p> <%= link_to 'Edit', edit_post_path(post) %> </p>
+    <p> <%= link_to 'Delete', post_path(post), method: :delete %> </p>
+  <% end %>
 <% end %>
